@@ -21,7 +21,10 @@
                                 Edit
                             </th>
                             <th scope="col">
-                                Trash
+                                Restore
+                            </th>
+                            <th scope="col">
+                                Destroy
                             </th>
                         </tr>
                     </thead>
@@ -38,11 +41,14 @@
                                             {{ $post->title }} 
                                     </td>
                                     <td>
-                                        <a href="{{ route('post.edit', ['id' => $post->id ])}}" class="btn btn-primary">Edit</a>  
+                                          <a href="hello" class="btn btn-primary">Edit</a>   
                                     </td> 
                                     <td>
-                                          <a href="{{ route('post.delete', ['id' => $post->id ])}}" class="btn btn-danger">Trash</a>  
-                                    </td>  
+                                          <a href="{{ route('post.restore', ['id' => $post->id ])}}" class="btn btn-success">Restore</a>  
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('post.kill', ['id' => $post->id ])}}" class="btn btn-danger">Delete</a>  
+                                  </td>  
                                 </tr>
                             @endforeach
                         </tbody>
