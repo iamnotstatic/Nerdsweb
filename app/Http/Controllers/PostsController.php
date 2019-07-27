@@ -18,6 +18,7 @@ class PostsController extends Controller
     {
         $posts = Post::all();
         return view('admin.posts.index')->with('posts', $posts);
+
     }
 
     /**
@@ -64,11 +65,12 @@ class PostsController extends Controller
 
             'title' => $request->title,
             'content' => $request->content,
-            'featured' => 'uploads/posts' .$featured_new_name,
+            'featured' => $featured_new_name,
             'category_id' => $request->category_id,
             'slug' => str_slug($request->title)
         ]);
 
+        
         Session::flash('success', 'You have successfully created a post');
 
         return redirect()->back();
