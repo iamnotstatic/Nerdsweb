@@ -24,21 +24,31 @@
                     </thead>
                 
                         <tbody>
-                             @foreach($categories as $category)
-                                 <tr>
-                                    <td>
-                                       {{ $category->name }} 
-                                    </td>
-                                    <td>
-                                             <a href="{{ route('category.edit', ['id' => $category->id])}}" class="btn btn-primary">Edit</a>
-                                             <span class="glyphicon glyphicon-pencil"></span>
-                                    </td> 
-                                    <td>
-                                            <a href="{{ route('category.delete', ['id' => $category->id])}}" class="btn btn-danger">Delete</a>
-                                             <span class="glyphicon glyphicon-remove-circle"></span>
-                                    </td>  
-                                </tr>
-                            @endforeach
+                             @if(count($categories) > 0)
+
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <td>
+                                        {{ $category->name }} 
+                                        </td>
+                                        <td>
+                                                <a href="{{ route('category.edit', ['id' => $category->id])}}" class="btn btn-primary">Edit</a>
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                        </td> 
+                                        <td>
+                                                <a href="{{ route('category.delete', ['id' => $category->id])}}" class="btn btn-danger">Delete</a>
+                                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                        </td>  
+                                    </tr>
+                                @endforeach
+
+                             @else
+
+                             <tr>
+                                    <th colspan="5" class="text-center">No Categories yet.</th>
+                            </tr>
+
+                             @endif
                         </tbody>
                 
                     </table>
