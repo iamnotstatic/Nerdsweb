@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
-class PostsController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -23,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -34,15 +35,16 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        
         $this->validate($request, [
-            'title' => 'required',
-            'featured' => 'required|image',
-            'content' => 'required'
+            'name' => 'required'
         ]);
 
+        $category = new Category;
 
-        dd($request->all());
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->back();
     }
 
     /**
