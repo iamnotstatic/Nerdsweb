@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Tag;
 use App\Post;
 
 class PostsController extends Controller
@@ -29,13 +30,14 @@ class PostsController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
         if($categories->count() == 0){
             Session::flash('info', 'You must have some categories before attempting to create a post');
         
             return redirect()->back();
         }
-        return view('admin.posts.create')->with('categories',  $categories);
+        return view('admin.posts.create')->with('categories',  $categories)->with('tags', $tags);
     }
 
     /**
@@ -52,6 +54,7 @@ class PostsController extends Controller
             'featured' => 'required|image',
             'content' => 'required',
             'category_id' => 'required',
+            'tags' => 'required',
         ]);
 
 
@@ -70,7 +73,8 @@ class PostsController extends Controller
             'slug' => str_slug($request->title)
         ]);
 
-        
+        $post->tags()->attach($request->tags);
+
         Session::flash('success', 'You have successfully created a post');
 
         return redirect()->back();
@@ -98,7 +102,9 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
-        return view('admin.posts.edit')->with('post', $post)->with('categories', Category::all());
+        return view('admin.posts.edit')->with('post', $post)
+                                       ->with('categories', Category::all())
+                                       ->with('tags', Tag::all());
     }
 
     /**
@@ -136,7 +142,8 @@ class PostsController extends Controller
 
         $post->save();
 
-
+        $post->tags()->sync($request->tags);
+        
         Session::flash('success', 'You successfuly updated the post.');
 
         return redirect()->route('posts');
