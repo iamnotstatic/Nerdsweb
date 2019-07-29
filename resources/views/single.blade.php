@@ -123,26 +123,29 @@
         
                         <div class="pagination-arrow">
         
-                            <a href="#" class="btn-prev-wrap">
-                                <svg class="btn-prev">
-                                    <use xlink:href="#arrow-left"></use>
-                                </svg>
-                                <div class="btn-content">
-                                    <div class="btn-content-title">Next Post</div>
-                                    <p class="btn-content-subtitle">Claritas Est Etiam Processus</p>
-                                </div>
-                            </a>
+                            @if($next)
+                                    <a href="{{ route('post.single', ['id' => $next->slug ])}}" class="btn-prev-wrap">
+                                        <svg class="btn-prev">
+                                            <use xlink:href="#arrow-left"></use>
+                                        </svg>
+                                        <div class="btn-content">
+                                            <div class="btn-content-title">Next </div>
+                                            <p class="btn-content-subtitle">{{ $next->title }}</p>
+                                        </div>
+                                    </a>
+                            @endif
         
-                            <a href="#" class="btn-next-wrap">
-                                <div class="btn-content">
-                                    <div class="btn-content-title">Previous Post</div>
-                                    <p class="btn-content-subtitle">Duis Autem Velius</p>
-                                </div>
-                                <svg class="btn-next">
-                                    <use xlink:href="#arrow-right"></use>
-                                </svg>
-                            </a>
-        
+                            @if($prev)
+                            <a href="{{ route('post.single', ['slug', $prev->slug ])}}" class="btn-next-wrap">
+                                    <div class="btn-content">
+                                        <div class="btn-content-title">Previous Post</div>
+                                        <p class="btn-content-subtitle">{{ $prev->title }}</p>
+                                    </div>
+                                    <svg class="btn-next">
+                                        <use xlink:href="#arrow-right"></use>
+                                    </svg>
+                                </a>
+                            @endif
                         </div>
         
                         <div class="comments">
