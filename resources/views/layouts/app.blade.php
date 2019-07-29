@@ -120,7 +120,12 @@
                                         </li>
                                         <li class="list-group-item">
                                             <a href="{{ route('tag.create') }}">Create new Tag</a>
-                                    </li>
+                                        </li>
+                                        @if(Auth::user()->admin)
+                                            <li class="list-group-item">
+                                                <a href="{{ route('settings') }}">Settings</a>
+                                            </li>
+                                        @endif
                                     </div>
                                 </div>
                             @endif
