@@ -179,6 +179,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         'as' => 'user.not.admin'
     ]);
 
+    Route::get('/user/profile', [
+        'uses' => 'ProfilesController@index',
+        'as' => 'user.profile'
+    ]);
+
+    Route::get('/user/delete/{id}', [
+        'uses' => 'UsersController@destroy',
+        'as' => 'user.delete'
+    ]);
+
+    Route::post('/user/profile/update', [
+        'uses' => 'ProfilesController@update',
+        'as' => 'user.profile.update'
+    ]);
+
 
 });
 

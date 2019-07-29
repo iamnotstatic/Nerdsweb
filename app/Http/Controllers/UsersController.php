@@ -58,7 +58,7 @@ class UsersController extends Controller
             'avatar' => 'uploads/avatars/1.jpg'
         ]);
 
-        Session::flash('success', 'Successfully created users');
+        Session::flash('success', 'Successfully created user');
         return redirect()->route('users');
     }
 
@@ -104,7 +104,16 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->profile->delete();
+
+        $user->delete();
+
+
+        Session::flash('success', 'User deleted.');
+
+        return redirect()->back();
     }
 
 
