@@ -21,7 +21,7 @@
     
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>    
+    <script src="{{ asset('js/app.js') }}"></script>    
 </head>
 <body>
     <div id="app">
@@ -141,6 +141,8 @@
                     </div>
             </main>
     </div>
-    
+
+    @yield('scripts')
+  
 </body>
 </html>
