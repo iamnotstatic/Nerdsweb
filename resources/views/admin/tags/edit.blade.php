@@ -4,8 +4,6 @@
 
 @section('content')
 
-    @include('admin.includes.errors')
-
     <div class="card">
         <div class="card-header">
             Update Tag

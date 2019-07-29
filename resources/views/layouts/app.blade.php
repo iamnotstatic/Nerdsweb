@@ -16,12 +16,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
+    
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/toastr.min.js')}}"></script>
     
 </head>
 <body>
@@ -95,15 +93,22 @@
                                          <li class="list-group-item">
                                             <a href="{{ route('posts') }}">All posts</a>
                                          </li>
+
+                                         @if(Auth::user()->admin)
+
                                          <li class="list-group-item">
-                                                <a href="{{ route('users') }}">All Users</a>
+                                            <a href="{{ route('users') }}">All Users</a>
                                         </li>
+                                        <li class="list-group-item">
+                                            <a href="{{ route('user.create') }}">Create User</a>
+                                        </li>
+                                        
+                                         @endif
+
+                                         
                                          <li class="list-group-item">
                                             <a href="{{ route('posts.trashed') }}">All trashed posts</a>
                                         </li>
-                                        <li class="list-group-item">
-                                                <a href="{{ route('user.create') }}">Create User</a>
-                                           </li>
                                         <li class="list-group-item">
                                              <a href="{{ route('post.create') }}">Create Post</a>
                                         </li>
@@ -119,6 +124,7 @@
                             
                             <div class="col-lg-8">
                                
+                                @include('admin.includes.errors')
                                     @yield('content')
                                 
                             </div>
@@ -126,33 +132,6 @@
                     </div>
             </main>
     </div>
-
-
-
-    <script>
-
-    @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type', 'info') }}";
-    switch(type){
-        case 'info':
-            toastr.info("{{ Session::get('message') }}");
-            break;
-        
-        case 'warning':
-            toastr.warning("{{ Session::get('message') }}");
-            break;
-
-        case 'success':
-            toastr.success("{{ Session::get('message') }}");
-            break;
-
-        case 'error':
-            toastr.error("{{ Session::get('message') }}");
-            break;
-    }
-  @endif
-
-    </script>
 
 </body>
 </html>

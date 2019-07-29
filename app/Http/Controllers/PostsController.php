@@ -33,8 +33,8 @@ class PostsController extends Controller
         $tags = Tag::all();
 
         if($categories->count() == 0){
-            Session::flash('info', 'You must have some categories before attempting to create a post');
-        
+
+            Session::flash('error', 'You must have some categories before attempting to create a post');
             return redirect()->back();
         }
         return view('admin.posts.create')->with('categories',  $categories)->with('tags', $tags);
@@ -167,9 +167,11 @@ class PostsController extends Controller
     }
 
     public function trashed(){
+
         $posts = Post::onlyTrashed()->get();
 
-        return view('admin.posts.trashed')->with('posts', $posts);
+        
+        return view('admin.posts.trashed')->with('posts', $posts)->with('success', 'posts trashed successfully');
     }
 
     public function kill($id){
@@ -178,7 +180,7 @@ class PostsController extends Controller
         $post->forceDelete();
 
 
-        Session::flash('sucess', 'Post deleted permanently');
+        Session::flash('success', 'Post deleted permanently');
 
         return redirect()->back();
     }
@@ -190,7 +192,7 @@ class PostsController extends Controller
         $post->restore();
 
 
-        Session::flash('success', 'Post successfully restore');
+        Session::flash('success', 'Post successfully restored');
 
         return redirect()->route('posts');
     }
