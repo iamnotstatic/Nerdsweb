@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Setting;
 use App\Category;
 use App\Post;
+use App\Tag;
 
 class FrontEndController extends Controller
 {
@@ -38,17 +39,18 @@ class FrontEndController extends Controller
         $categories = Category::take(5)->get();
         $settings = Setting::first();
         $post = Post::where('slug', $slug)->first();
+        $tags = Tag::all();
 
         $next_id = Post::where('id', '>', $post->id)->min('id');
         $prev_id = Post::where('id', '<', $post->id)->max('id');
 
-        return view('single')
-                        ->with('post', $post)
+        return view('single')->with('post', $post)
                         ->with('title', $post->title)
                         ->with('categories', $categories)
                         ->with('settings', $settings)
                         ->with('next', Post::find($next_id))
-                        ->with('prev', Post::find($prev_id));
+                        ->with('prev', Post::find($prev_id))
+                        ->with('tags', $tags);
 
     }
 }
