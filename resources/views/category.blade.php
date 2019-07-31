@@ -13,6 +13,7 @@
                 <main class="main">
                     
                         <div class="row">
+                                @if(count($category->posts) > 0)
                                 <div class="case-item-wrap">
                                     @foreach($category->posts as $post)
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -25,6 +26,12 @@
                                             </div>
                                     @endforeach 
                                 </div>
+                                @else
+
+                                    <h1 class="text-center">
+                                        No results found.
+                                    </h1>
+                                @endif
                             </div>
                         </div>
                     </div>
