@@ -56,6 +56,7 @@ class FrontEndController extends Controller
 
 
     public function category($id){
+
         $category = Category::find($id);
         $settings = Setting::first();
         $categories = Category::take(5)->get();
@@ -65,6 +66,26 @@ class FrontEndController extends Controller
                                 ->with('settings', $settings)
                                 ->with('categories', $categories);
     }
+
+
+    public function tag($id){
+
+        $tag = Tag::find($id);
+        $settings = Setting::first();
+        $categories = Category::take(5)->get();
+
+        return view('tag')->with('tag', $tag)
+                          ->with('title', $tag->tag)
+                          ->with('settings', $settings)
+                          ->with('categories', $categories);
+    }
+
+
+
+
+
+
+
 }
 
 
