@@ -4,6 +4,16 @@
 
 // Web Routes
 
+Route::post('/subscribe', function(){
+    $email = request('email');
+    
+    Newsletter::subscribe($email);
+
+    Session::flash('subscribed', 'Successfully subscribed.');
+
+    return redirect()->back();
+});
+
 Route::get('/', [
     'uses' => 'FrontEndController@index',
     'as' => 'index'
