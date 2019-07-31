@@ -27,7 +27,7 @@
                                         Posted by
         
                                         <div class="post__author-name fn">
-                                            <a href="#" class="post__author-link">Admin</a>
+                                            <a  class="post__author-link">{{ $post->user->name }}</a>
                                         </div>
         
                                     </div>

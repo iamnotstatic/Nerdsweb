@@ -58,7 +58,7 @@
 
                 <div class="form-group">
                         <label for="content">Content</label>
-                        <textarea name="content" name="content" class="form-control" cols="5" rows="5">{{ $post->content }}</textarea>
+                        <textarea name="content" name="content" id="summary-ckeditor" class="form-control" cols="5" rows="5">{{ $post->content }}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -69,4 +69,11 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
 @endsection
