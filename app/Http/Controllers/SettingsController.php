@@ -25,7 +25,8 @@ class SettingsController extends Controller
             'site_name' => 'required',
             'address' => 'required',
             'contact_number' => 'required',
-            'contact_email' => 'required'
+            'contact_email' => 'required',
+            'about_site' => 'required'
         ]);
         
         $settings = Setting::first();
@@ -34,6 +35,7 @@ class SettingsController extends Controller
         $settings->address = request()->address;
         $settings->contact_number = request()->contact_number;
         $settings->contact_email = request()->contact_email;
+        $settings->about_site = request()->about_site;
 
         $settings->save();
 

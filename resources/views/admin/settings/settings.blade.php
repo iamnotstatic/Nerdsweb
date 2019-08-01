@@ -29,6 +29,10 @@
                     <label for="name">Contact Email</label>
                     <input type="text" name="contact_email" class="form-control" value="{{ $setting->contact_email }}">
                 </div>
+                <div class="form-group">
+                        <label for="name">About site</label>
+                       <textarea name="about_site"  cols="6" rows="6" class="form-control">{{ $setting->about_site }}</textarea>
+                    </div>
 
                 <div class="form-group">
                     <div class="text-center">
