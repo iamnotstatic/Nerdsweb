@@ -26,7 +26,10 @@ We expect contributors to abide by our underlying code of conduct. All conversat
 <li>Document your reasoning behind the changes. Explain why you wrote the code in the way you did. The code should explain what it does.</li>
 <li>If there's an existing issue related to the pull request, reference to it by adding something like References/Closes/Fixes/Resolves #305, where 305 is the issue number. </li>
 <li>If you follow the pull request template, you can't go wrong.</li>
+<br>
+<hr>
 <i>Please note: all commits in a pull request will be squashed when merged, but when your PR is approved and passes our CI, it will be live on production!</i>
 
-
+<br>
+<hr>
 <p>Happy Coding ❤️</p>

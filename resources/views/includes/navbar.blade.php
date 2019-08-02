@@ -24,6 +24,33 @@
                             </li>
                         @endforeach
                     </ul>
+                    <ul class="primary-menu-menu" style="overflow: hidden;">
+                        @if(!Auth::user())
+                            <li>
+                                <a href="/login">LOGIN</a>
+                            </li>
+                            <li>
+                                <a href="/login">SIGNUP</a>
+                            </li>
+                        @else
+                        <li>
+                            <a href="/admin/dashboard">DASHBOARD</a>
+                        </li>
+                        <li>
+                            
+                                <a class="" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('LOGOUT') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            
+                        </li>
+                        @endif
+                    </ul>
                 </nav>
                 <ul class="nav-add">
                     <li class="search search_main" style="color: black; margin-top: 5px;">

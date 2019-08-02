@@ -22,8 +22,8 @@ class UsersTableSeeder extends Seeder
             'user_id' => $user->id,
             'avatar' => 'uploads/avatars/1.jpg',
             'about' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam qui perferendis quod saepe quia. Tenetur in nobis est accusantium, dolorem sunt ut! Nulla nobis tempore mollitia asperiores nostrum id impedit!',
-            'facebook' => 'facebook.com',
-            'youtube' => 'youtube.com'
+            'facebook' => 'www.twitter.com',
+            'youtube' => 'www.github.com'
         ]);
     }
 }

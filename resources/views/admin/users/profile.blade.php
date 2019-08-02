@@ -30,11 +30,11 @@
                     <input type="file" name="avatar" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="name">Facebook</label>
+                    <label for="name">Twitter</label>
                     <input type="text" name="facebook" value="{{ $user->profile->facebook }}" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="name">Youtube</label>
+                    <label for="name">Github</label>
                     <input type="text" name="youtube" value="{{ $user->profile->youtube }}" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">

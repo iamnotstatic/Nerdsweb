@@ -88,10 +88,10 @@
                                             <a href="{{ route('category.single', ['id' => $first_post->category->id ])}}">{{ $first_post->category->name}}</a>
                                         </span>
 
-                                        <span class="post__comments">
+                                        {{-- <span class="post__comments">
                                             <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
                                             6
-                                        </span>
+                                        </span> --}}
 
                                     </div>
                             </div>
@@ -142,10 +142,7 @@
                                             <a href="{{ route('category.single', ['id' =>  $second_post->category->id ])}}">{{ $second_post->category->name }}</a>
                                         </span>
 
-                                        <span class="post__comments">
-                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
-                                            6
-                                        </span>
+                                        
 
                                     </div>
                             </div>
@@ -192,10 +189,7 @@
                                             <a href="{{ route('category.single', ['id' => $third_post->category->id ])}}">{{ $third_post->category->name }}</a>
                                         </span>
 
-                                        <span class="post__comments">
-                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
-                                            6
-                                        </span>
+                                        
 
                                     </div>
                             </div>
