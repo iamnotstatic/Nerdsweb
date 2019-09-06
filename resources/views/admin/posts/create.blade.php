@@ -16,12 +16,12 @@
 
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" placeholder="">
+                    <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                 </div>
 
                 <div class="form-group">
                         <label for="featured">Featured Img</label>
-                        <input type="file" name="featured" class="form-control" placeholder="">
+                        <input type="file" name="featured" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                         <label for="content">Content</label>
-                        <textarea name="content" name="content" id="summary-ckeditor" class="form-control" cols="5" rows="5"></textarea>
+                        <textarea  name="content" id="summary-ckeditor" class="form-control" cols="5" rows="5">{{ old('content') }}</textarea>
                 </div>
 
                 <div class="form-group">

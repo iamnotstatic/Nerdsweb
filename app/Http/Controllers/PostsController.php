@@ -180,13 +180,17 @@ class PostsController extends Controller
     public function kill($id){
         $post = Post::withTrashed()->where('id', $id)->first();
 
-        $post->forceDelete();
+        if(file_exists($post->featured)){
+            unlink($post->featured);
+        }
 
+        $post->forceDelete();
 
         Session::flash('success', 'Post deleted permanently');
 
         return redirect()->back();
     }
+
 
     public function restore($id){
 
