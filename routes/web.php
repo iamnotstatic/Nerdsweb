@@ -114,7 +114,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 
     //Categories Routes 
-
+    
     Route::get('/category/create', [
         'uses' => 'CategoriesController@create',
         'as' => 'category.create'
